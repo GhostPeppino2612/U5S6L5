@@ -1,0 +1,19 @@
+package giuseppeacquaviva.U5S6L5.exceptions;
+
+import lombok.Getter;
+import org.springframework.validation.ObjectError;
+
+import java.util.List;
+@Getter
+public class BadRequestException extends RuntimeException {
+    private List<ObjectError> errors;
+
+    public BadRequestException(String message) {
+        super(message);
+    }
+
+    public BadRequestException(List<ObjectError> errors) {
+        super("Errore nel payload");
+        this.errors = errors;
+    }
+}
